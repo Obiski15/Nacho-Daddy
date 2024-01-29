@@ -5,7 +5,7 @@ function Logo() {
   return (
     <div>
       <img
-        src="../nacho-daddy-logo.png"
+        src="/nacho-daddy-logo.png"
         alt="nacho-daddy-logo"
         className="h-24 w-24 rounded-full"
         onClick={() => {
