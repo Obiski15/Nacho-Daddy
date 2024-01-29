@@ -52,6 +52,7 @@ function CouponForm({ coupon, setCoupon }) {
         name="coupon"
         {...register("coupon")}
         className="coupon w-[50%] rounded-lg p-1 text-sm font-bold outline-none transition-all duration-500 focus:ring focus:ring-yellow-300 focus:ring-offset-2"
+        disabled={coupon ? true : false}
       />
       <div>
         {!coupon && <Button>Apply</Button>}
