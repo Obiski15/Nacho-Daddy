@@ -1,6 +1,6 @@
 import IncDecButton from "../../Components/IncDecButton";
 import BookmarkItem from "../Bookmark/BookmarkItem";
-import DeleteCartItem from "./deleteCartItem";
+import DeleteCartItem from "./DeleteCartItem";
 
 function CartButtons({ item }) {
   return (
