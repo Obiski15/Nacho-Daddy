@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLogout } from "../../Features/Authentication/useLogout";
+
 import FullPageSpinner from "../FullPageSpinner";
 
 function AccountDropDown({ listRef, isOpen, setIsOpen }) {
@@ -24,7 +25,7 @@ function AccountDropDown({ listRef, isOpen, setIsOpen }) {
         </li>
         <li className={linkStyle}>
           <Link
-            to="myorders"
+            to="/myorders"
             onClick={() => {
               setIsOpen(false);
             }}

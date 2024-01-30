@@ -7,7 +7,7 @@ import AccountIcon from "./AccountIcon";
 function Filter() {
   return (
     <div className="flex cursor-default items-center justify-center gap-5 pr-2">
-      <CiBookmark size={35} onClick={() => {}} />
+      <CiBookmark size={35} />
       <Sorting />
       <CartIcon />
       <AccountIcon />
