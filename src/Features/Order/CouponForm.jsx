@@ -2,6 +2,7 @@ import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 
+import { INPUT_STYLE } from "../../Utility/constants";
 import { getTotalPrice } from "../../Store/cartSlice";
 
 import Button from "../../Components/Button";
@@ -25,7 +26,11 @@ function CouponForm({ coupon, setCoupon }) {
 
     const couponAmount = coupons[coupon];
 
-    if (couponAmount === undefined || null) toast.error("invalid coupon");
+    if (couponAmount === undefined || null) {
+      toast.error("invalid coupon");
+      return;
+    }
+
     if (couponAmount > totalPrice)
       toast.error("coupon value is greater than total price");
     else {
@@ -51,7 +56,7 @@ function CouponForm({ coupon, setCoupon }) {
         placeholder="Coupon Code"
         name="coupon"
         {...register("coupon")}
-        className="coupon w-[50%] rounded-lg p-1 text-sm font-bold outline-none transition-all duration-500 focus:ring focus:ring-yellow-300 focus:ring-offset-2"
+        className={INPUT_STYLE}
         disabled={coupon ? true : false}
       />
       <div>

@@ -26,8 +26,6 @@ Welcome to Nacho Daddy project! This is a fully functional online shopping platf
 3. Configure Supabase credentials.
 4. Run the application with `npm run dev`.
 
-Note: "Bookmark feature isn't working yet"
-
 live url: https://nacho-daddy.vercel.app/
 
 Happy shopping! 🛍️
