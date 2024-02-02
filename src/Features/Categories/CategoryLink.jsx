@@ -7,7 +7,7 @@ function CategoryLink({ path, categoryName, children }) {
       className="flex items-center justify-start gap-3 rounded-md p-2 hover:bg-stone-300 hover:font-semibold hover:text-yellow-500"
     >
       <span>{children}</span>
-      <span>{categoryName}</span>
+      <span className="whitespace-nowrap">{categoryName}</span>
     </NavLink>
   );
 }

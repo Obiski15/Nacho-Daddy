@@ -1,28 +1,30 @@
 import toast from "react-hot-toast";
-
-import { formatCurrency } from "../../../Utility/helpers";
-import { addItem } from "../../../Store/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-import Button from "../../../Components/Button";
-import IncDecButton from "../../../Components/IncDecButton";
+import { addItem } from "../../Store/cartSlice";
+import { formatCurrency } from "../../Utility/helpers";
 
-function FlashSaleItem({ item }) {
+import IncDecButton from "../../Components/IncDecButton";
+import Button from "../../Components/Button";
+
+function HorizontalCategoriesItem({ discountInPercentage, item }) {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
 
-  const discount = item.unitPrice / 2;
+  const itemPrice = discountInPercentage
+    ? item.unitPrice - (50 / 100) * item.unitPrice
+    : item.unitPrice;
 
   function handleAddToCart() {
     const newItem = {
       id: item.id,
       itemName: item.itemName,
       quantity: 1,
-      unitPrice: discount,
-      totalPrice: discount,
+      unitPrice: itemPrice,
+      totalPrice: itemPrice,
       quantityAvailable: item.quantityAvailable,
       image: item.image,
-      discount: discount,
+      discount: itemPrice,
       isBookmarked: false,
     };
 
@@ -50,7 +52,7 @@ function FlashSaleItem({ item }) {
             <del className="text-light italic">
               {formatCurrency(item.unitPrice)}
             </del>{" "}
-            {formatCurrency(discount)}
+            {formatCurrency(itemPrice)}
           </p>
           <p
             className={`text-sm ${
@@ -59,9 +61,11 @@ function FlashSaleItem({ item }) {
           >
             {item.quantityAvailable > 0 ? "In Stock" : <del>Sold out</del>}
           </p>
-          <p className="text-md absolute right-2 top-1 rounded-md bg-red-50 p-1 font-bold text-stone-500">
-            -50%
-          </p>
+          {discountInPercentage && (
+            <p className="text-md absolute right-2 top-1 rounded-md bg-red-50 p-1 font-bold text-stone-500">
+              {`-${discountInPercentage}%`}
+            </p>
+          )}
           {cart.find((el) => item.id === el.id)?.quantity >= 1 ? (
             <IncDecButton item={item} />
           ) : (
@@ -79,4 +83,4 @@ function FlashSaleItem({ item }) {
   );
 }
 
-export default FlashSaleItem;
+export default HorizontalCategoriesItem;

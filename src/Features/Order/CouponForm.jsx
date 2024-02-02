@@ -56,7 +56,7 @@ function CouponForm({ coupon, setCoupon }) {
         placeholder="Coupon Code"
         name="coupon"
         {...register("coupon")}
-        className={INPUT_STYLE}
+        className={`max-w-[200px] ${INPUT_STYLE}`}
         disabled={coupon ? true : false}
       />
       <div>

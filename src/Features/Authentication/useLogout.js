@@ -11,13 +11,13 @@ export function useLogout() {
     mutationFn: signOut,
 
     onSuccess: () => {
-      toast.success("logout sucessfull");
+      toast.success("Logged Out");
       navigate("/", { replace: true });
       queryClient.removeQueries();
     },
 
     onError: () => {
-      toast.error("failed to logout");
+      toast.error("Failed to Logout");
     },
   });
   return { logout, isPending };

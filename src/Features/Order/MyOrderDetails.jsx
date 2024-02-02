@@ -29,7 +29,7 @@ function MyOrderDetails({ order }) {
   }
 
   return (
-    <div className="relative rounded-md bg-stone-200 p-2">
+    <div className="no-scrollbar relative overflow-scroll rounded-md bg-stone-200 p-2">
       <div className="my-3 ml-3 text-sm">
         {JSON.parse(cart).map((item) => (
           <div key={item.id} className="mb-1 font-light">
@@ -47,7 +47,7 @@ function MyOrderDetails({ order }) {
         </p>
       </div>
       <Button
-        moreStyle={"absolute right-3 bottom-2"}
+        moreStyle={"absolute right-1 -bottom-3 mb-[20px]"}
         onClick={handleCancelOrder}
         disabled={status === "cancelled" || isPending}
       >

@@ -1,44 +1,32 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import { LARGE_ICON_SIZE } from "../../Utility/constants";
 import { RiAccountCircleLine } from "react-icons/ri";
 
 import AccountDropDown from "./AccountDropDown";
+import useHandleOutsideClick from "../../Hooks/useHandleOutsideClick";
 
-function AccountIcon() {
+function AccountIcon({ setShowFilter }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef();
 
-  useEffect(() => {
-    if (!isOpen) return;
-    const listeners = ["click", "scroll"];
-    function handleOutsideClick(e) {
-      if (ref.current && !ref.current.contains(e.target)) {
-        setIsOpen(false);
-      }
-    }
-
-    listeners.forEach((listener) =>
-      document.addEventListener(listener, handleOutsideClick, true),
-    );
-
-    return () => {
-      listeners.forEach((listener) =>
-        document.removeEventListener(listener, handleOutsideClick, true),
-      );
-    };
-  }, [isOpen]);
+  useHandleOutsideClick(isOpen, setIsOpen, ref);
 
   return (
-    <div className="relative">
+    <div className="relative" ref={ref}>
+      {/* ref is placed in the parent to handle conditons in the usehandleclick hook due to event propagation */}
       <RiAccountCircleLine
-        size={LARGE_ICON_SIZE}
         onClick={() => {
           setIsOpen((isOpen) => !isOpen);
         }}
+        size={LARGE_ICON_SIZE}
       />
 
-      <AccountDropDown listRef={ref} isOpen={isOpen} setIsOpen={setIsOpen} />
+      <AccountDropDown
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        setShowFilter={setShowFilter}
+      />
     </div>
   );
 }

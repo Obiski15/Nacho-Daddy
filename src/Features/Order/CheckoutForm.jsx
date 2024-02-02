@@ -33,7 +33,7 @@ function CheckoutForm({ setFormvalues }) {
     <form
       onSubmit={handleSubmit(onSubmit)}
       method="get"
-      className="rounded-lg bg-stone-200 p-2"
+      className="rounded-lg bg-stone-200 px-4 py-2"
     >
       <Heading type="h1">checkout</Heading>
       <div className="mx-3 my-5">

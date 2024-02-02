@@ -10,9 +10,17 @@ function CategoryContainer({ data }) {
 
   const searchedItems = searchItem(data, query);
 
-  if (!data.length) return <p>Sorry no items available currently ):</p>;
+  if (!data.length)
+    return (
+      <p className="mx-2 min-h-[50vh] rounded-sm">
+        Sorry no items available currently ):
+      </p>
+    );
 
-  if (!searchedItems.length) return <p>Item not found</p>;
+  if (!searchedItems.length)
+    return (
+      <p className="mx-2 min-h-[50vh] rounded-sm">Sorry item not found ):</p>
+    );
 
   const items =
     sortBy === "priceUp"
@@ -29,7 +37,7 @@ function CategoryContainer({ data }) {
         <span className="font-semibold">{searchedItems.length}</span> products
         found
       </h1>
-      <div className="grid grid-cols-4 grid-rows-[auto] items-start justify-between gap-3">
+      <div className="grid grid-cols-1 grid-rows-[auto] items-start justify-between gap-3 min-[420px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 min-[1440px]:grid-cols-5 min-[1750px]:grid-cols-7">
         {items.map((item) => (
           <CategoryItem item={item} key={item.id} />
         ))}

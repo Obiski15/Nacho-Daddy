@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchItems } from "../../Services/itemsApi";
 
 import CategoryContainer from "./CategoryContainer";
-import Spinner from "../../Components/Spinner";
+import DummyItem from "../../Components/DummyItem";
 import ErrorMessage from "../../Components/ErrorMessage";
 
 function PetsAndAnimals() {
@@ -14,7 +14,7 @@ function PetsAndAnimals() {
     },
   });
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <DummyItem />;
   if (isError) return <ErrorMessage error={error.message} />;
 
   return <CategoryContainer data={data} />;

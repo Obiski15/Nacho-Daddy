@@ -7,11 +7,10 @@ function Sorting() {
   const dispatch = useDispatch();
   return (
     <div className="flex items-center justify-center gap-2">
-      <label htmlFor="sort" className="text-sm font-semibold uppercase italic">
+      <p className="hidden text-sm font-semibold uppercase italic lg:block">
         Sort By:
-      </label>
+      </p>
       <select
-        id="sort"
         name="sort"
         value={sort}
         onChange={(e) => {

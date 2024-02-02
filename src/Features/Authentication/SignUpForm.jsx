@@ -21,7 +21,6 @@ function SignUpForm() {
 
   function handleSignUp() {
     const { fullname, email, password } = getValues();
-    console.log(fullname, email, password);
     signUp(
       { fullname, email, password },
       {

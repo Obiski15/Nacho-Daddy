@@ -1,19 +1,20 @@
 import { Link } from "react-router-dom";
 import { useLogout } from "../../Features/Authentication/useLogout";
 
-import FullPageSpinner from "../FullPageSpinner";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
 
-function AccountDropDown({ listRef, isOpen, setIsOpen }) {
+function AccountDropDown({ isOpen, setIsOpen, setShowFilter }) {
   const { logout, isPending } = useLogout();
   const linkStyle = "rounded-sm p-1 capitalize hover:bg-stone-200";
 
-  if (isPending) return <FullPageSpinner />;
+  useEffect(() => {
+    if (isPending) toast.success("Logging out");
+  }, [isPending]);
+
   return (
     isOpen && (
-      <ul
-        ref={listRef}
-        className="items-left absolute -right-2 top-[75px] flex w-[120px] flex-col justify-between gap-2 rounded-sm bg-stone-300 p-1 font-semibold"
-      >
+      <ul className="items-left absolute -right-10 top-[75px] flex w-[120px] flex-col justify-between gap-2 rounded-sm bg-stone-300 p-1 font-semibold lg:-right-2">
         <li className={linkStyle}>
           <Link
             onClick={() => {
@@ -39,6 +40,7 @@ function AccountDropDown({ listRef, isOpen, setIsOpen }) {
             onClick={() => {
               logout();
               setIsOpen(false);
+              setShowFilter(false);
             }}
           >
             Sign out

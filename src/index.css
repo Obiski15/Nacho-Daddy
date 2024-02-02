@@ -22,6 +22,52 @@
     animation: spin 1s linear infinite;
   }
 
+  .line1 {
+    transform: rotate(-45deg) translate(-4px, 8px);
+  }
+
+  .line2 {
+    opacity: 0;
+  }
+
+  .line3 {
+    transform: rotate(45deg) translate(-6px, -8px);
+  }
+
+  .dummy-item-animate {
+    animation: dummy-item-animate 1s linear infinite alternate-reverse;
+  }
+
+  .logo-animate {
+    animation: logo-animate 1s linear infinite alternate;
+  }
+
+  @keyframes dummy-item-animate {
+    from {
+      opacity: 70%;
+      transform: scale(1.01);
+    }
+    to {
+      opacity: 100%;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes logo-animate {
+    0% {
+      transform: scale(0.2);
+    }
+    50% {
+      transform: scale(0.5);
+    }
+    75% {
+      transform: scale(0.2);
+    }
+    100% {
+      transform: scale(0.5);
+    }
+  }
+
   @keyframes spin {
     from {
       transform: rotate(0deg);

@@ -3,6 +3,7 @@ import { useState } from "react";
 import MyOrderDetails from "./MyOrderDetails";
 
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import { SMALL_ICON_SIZE } from "../../Utility/constants";
 
 function MyOrderRow({ orders }) {
   const [clickedId, setClickedId] = useState(false);
@@ -26,37 +27,51 @@ function MyOrderRow({ orders }) {
         <div key={order.id}>
           <div className="mb-1 flex items-center justify-between gap-4 bg-stone-300 p-2 text-sm ">
             {clickedId === order.id ? (
-              <IoIosArrowDown onClick={handleHideDetails} />
+              <IoIosArrowDown
+                size={SMALL_ICON_SIZE}
+                onClick={handleHideDetails}
+              />
             ) : (
               <IoIosArrowForward
+                size={SMALL_ICON_SIZE}
                 onClick={() => {
                   handleShowDetails(order.id);
                 }}
               />
             )}
             <div
-              className="grid grow grid-cols-4 justify-between text-left capitalize"
+              className="no-scrollbar grid grow items-center justify-between gap-3 overflow-scroll px-2 text-left capitalize max-[768px]:grid-cols-2 max-[450px]:grid-cols-1 min-[768px]:grid-cols-4"
               key={order.id}
             >
-              <p>order id: {order.id}</p>
-              <p>
-                order status:{" "}
-                <span
+              <div className="justify-left flex items-center gap-2 whitespace-nowrap">
+                <p>order id: </p>
+                <p>{order.id}</p>
+              </div>
+
+              <div className="justify-left flex items-center gap-2 whitespace-nowrap">
+                <p>order status:</p>
+                <p
                   className={`${
                     order.status === "cancelled"
                       ? "bg-red-500"
                       : order.status === "processing"
                         ? "bg-yellow-400"
                         : "bg-green-400"
-                  } ml-2 rounded-md px-2 py-1 text-sm font-semibold`}
+                  } rounded-md px-2 py-1 text-sm font-semibold`}
                 >
                   {order.status}
-                </span>
-              </p>
-              <p>delivery date: {order.deliveryDate}</p>
-              <p className="font-semibold text-yellow-700">
-                Order Placed By: {order.fullname}
-              </p>
+                </p>
+              </div>
+
+              <div className="justify-left flex items-center gap-2 whitespace-nowrap">
+                <p>delivery date:</p>
+                <p>{order.deliveryDate}</p>
+              </div>
+
+              <div className="justify-left flex items-center gap-2 whitespace-nowrap font-semibold">
+                <p>Order Placed By:</p>
+                <p className="text-yellow-700 ">{order.fullname}</p>
+              </div>
             </div>
           </div>
           {clickedId === order.id && <MyOrderDetails order={order} />}

@@ -14,7 +14,7 @@ function IncDecButton({ item, moreStyles, disabled }) {
   )?.quantity;
 
   return (
-    <div className={`space-x-4 ${moreStyles}`}>
+    <div className={`flex items-center justify-between gap-2  ${moreStyles}`}>
       <Button
         disabled={disabled}
         onClick={() => {

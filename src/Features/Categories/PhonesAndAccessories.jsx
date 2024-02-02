@@ -3,7 +3,7 @@ import { fetchItems } from "../../Services/itemsApi";
 
 import CategoryContainer from "./CategoryContainer";
 import ErrorMessage from "../../Components/ErrorMessage";
-import Spinner from "../../Components/Spinner";
+import DummyItem from "../../Components/DummyItem";
 
 function PhonesAndAccessories() {
   const { data, isLoading, isError, error } = useQuery({
@@ -14,7 +14,7 @@ function PhonesAndAccessories() {
     },
   });
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <DummyItem />;
   if (isError) return <ErrorMessage error={error.message} />;
 
   return <CategoryContainer data={data} />;

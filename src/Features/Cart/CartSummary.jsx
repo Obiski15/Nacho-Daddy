@@ -15,7 +15,7 @@ function CartSummary() {
 
   return (
     <>
-      <div className="space-y-4 rounded-lg bg-stone-200 p-2">
+      <div className="space-y-4 rounded-lg bg-stone-200 px-2 py-4">
         <h1 className="text-xl font-bold uppercase">Cart Summary</h1>
         <div className="flex items-center justify-between">
           <p className="font-semibold italic">Sub Total:</p>

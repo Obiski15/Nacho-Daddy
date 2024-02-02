@@ -17,7 +17,7 @@ function Cart() {
         {!cart.length ? (
           <p className="text-sm font-semibold">Your cart is empty ):</p>
         ) : (
-          <div className="mt-2 grid grid-cols-[1fr_15rem] items-start justify-between gap-5">
+          <div className="mt-2 grid grid-cols-1 items-start justify-between gap-5 md:grid-cols-[1fr_15rem]">
             <div>
               {cart.map((item) => (
                 <CartItem item={item} key={item.id} />

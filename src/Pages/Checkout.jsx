@@ -13,16 +13,16 @@ function Checkout() {
     <>
       <Header />
 
-      <div className="m-3 grid grid-cols-[1fr_20rem] grid-rows-[auto] items-start justify-center gap-5">
+      <div className="m-3">
         {!cart.length ? (
           <p className="col-span-2 text-sm font-semibold">
             Your cart is empty ):
           </p>
         ) : (
-          <>
+          <div className="grid grid-cols-1 grid-rows-[auto] items-start justify-center gap-5">
             <CheckoutForm setFormvalues={setFormvalues} />
             <CheckoutSummary formValues={formValues} />
-          </>
+          </div>
         )}
       </div>
     </>

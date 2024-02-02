@@ -29,7 +29,7 @@ function CategoryItem({ item }) {
 
   return (
     <div
-      className={`no-scrollbar h-[320px] w-[200px] overflow-scroll rounded-lg text-left ${
+      className={`no-scrollbar m-auto h-[320px] w-[200px] overflow-scroll rounded-lg text-left ${
         !(item.quantityAvailable === 0) ? "hover:bg-stone-300" : ""
       } ${item.quantityAvailable === 0 && "opacity-50"}`}
     >

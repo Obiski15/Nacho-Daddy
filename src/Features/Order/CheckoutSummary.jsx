@@ -63,7 +63,7 @@ function CheckoutSummary({ formValues }) {
   if (isPending) return <FullPageSpinner />;
 
   return (
-    <div className="h-auto overflow-x-auto rounded-lg bg-stone-200 p-2">
+    <div className="no-scrollbar h-auto overflow-x-scroll rounded-lg bg-stone-200 px-4 py-2">
       <h1 className="text-xl font-bold capitalize">order details</h1>
       {formValues ? (
         <>

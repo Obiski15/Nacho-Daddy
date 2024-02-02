@@ -7,7 +7,7 @@ const ICON_SIZE = 25;
 
 function Footer() {
   return (
-    <footer className="col-span-3 flex items-center justify-center gap-4 bg-stone-300 p-4 text-center">
+    <footer className="col-span-3 flex flex-wrap items-center justify-center gap-4 bg-stone-300 p-4 text-center">
       <p className="capitalize">
         &copy; {new Date().getFullYear()} Obi Emmanuel. All rights reserved
       </p>
