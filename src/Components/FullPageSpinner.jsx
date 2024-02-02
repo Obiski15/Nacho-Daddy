@@ -2,7 +2,7 @@ function FullPageSpinner() {
   return (
     <div className="fixed bottom-0 left-0 right-0 top-0 z-50 bg-zinc-300 opacity-80 transition-all">
       <svg
-        className="left-[50%] top-[50%] m-auto block h-[100px] w-[100px] translate-x-[-50%] translate-y-[-50%]"
+        className="absolute left-[50%] top-[50%] m-auto block h-[100px] w-[100px] translate-x-[-50%] translate-y-[-50%]"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         viewBox="0 0 100 100"
