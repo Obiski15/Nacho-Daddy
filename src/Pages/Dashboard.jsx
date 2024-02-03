@@ -12,7 +12,7 @@ function Dashboard() {
       <Header />
 
       <SideBar />
-      <main className="relative col-span-3 mr-2 max-h-[500vh] space-y-3 overflow-scroll rounded-lg bg-stone-200 p-3 lg:col-span-2">
+      <main className="no-scrollbar relative col-span-3 max-h-[500vh] overflow-scroll rounded-lg bg-stone-200 p-3 lg:col-span-2 lg:mr-2 lg:space-y-3">
         <Outlet />
       </main>
 
