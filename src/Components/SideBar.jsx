@@ -13,12 +13,16 @@ import { RiHealthBookLine } from "react-icons/ri";
 import { IoCarSportOutline } from "react-icons/io5";
 import { IoPhonePortraitSharp } from "react-icons/io5";
 
+import Heading from "./Heading";
+
 function SideBar() {
   return (
     <aside className="col-span-3 mx-2 flex flex-col gap-5 rounded-md bg-stone-200 py-3 lg:col-span-1 lg:h-[40em]">
-      <h2 className="h2 text-md px-3 font-light capitalize italic tracking-wide">
-        all categories
-      </h2>
+      <div className="px-3">
+        <Heading type="h4" moreStyles="italic" font="light">
+          all categories
+        </Heading>
+      </div>
       <div className="no-scrollbar flex flex-row gap-3 overflow-scroll px-3 lg:flex-col">
         <CategoryLink path="items" categoryName="Home">
           <IoHomeOutline size={SMALL_ICON_SIZE} />

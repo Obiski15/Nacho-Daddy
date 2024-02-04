@@ -23,7 +23,7 @@ Welcome to Nacho Daddy project! This is a fully functional online shopping platf
 
 1. Clone the repository.
 2. Install dependencies using `npm install`.
-3. Configure Supabase credentials.
+3. Replace import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY in the supabase service file with your personal supabase URL and ANON_KEY
 4. Run the application with `npm run dev`.
 
 live url: https://nacho-daddy.vercel.app/

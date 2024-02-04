@@ -31,14 +31,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="signup" element={<SignUp />} />
-          <Route index element={<Login />} />
-          <Route
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          >
+          <Route path="login" element={<Login />} />
+          <Route element={<Dashboard />}>
             <Route index element={<Navigate to="items" replace />} />
             <Route path="items" element={<AllCategories />} />
             <Route path="categories/babyitems" element={<BabyItems />} />
@@ -60,14 +54,7 @@ function App() {
             <Route path="categories/groceries" element={<Groceries />} />
             <Route path="categories/toys" element={<ToysAndGaming />} />
           </Route>
-          <Route
-            path="cart"
-            element={
-              <ProtectedRoute>
-                <Cart />
-              </ProtectedRoute>
-            }
-          />
+          <Route path="cart" element={<Cart />} />
           <Route
             path="checkout"
             element={
@@ -84,14 +71,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="*"
-            element={
-              <ProtectedRoute>
-                <PageNotFound />
-              </ProtectedRoute>
-            }
-          />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Toaster
           position="top-right"

@@ -8,7 +8,7 @@ import Footer from "../Components/Footer";
 
 function Dashboard() {
   return (
-    <div className="no-scrollbar grid min-h-[100%] grid-cols-[15rem_1fr] grid-rows-[auto] gap-4">
+    <div className="no-scrollbar grid min-h-full grid-cols-[15rem_1fr] grid-rows-[auto] gap-4">
       <Header />
 
       <SideBar />

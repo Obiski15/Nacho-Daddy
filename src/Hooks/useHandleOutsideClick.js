@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-function useHandleOutsideClick(showElement, setShowElement, ref) {
+export function useHandleOutsideClick(showElement, setShowElement, ref) {
   useEffect(() => {
     if (!showElement) return;
     const listeners = ["click", "scroll"];
@@ -25,5 +25,3 @@ function useHandleOutsideClick(showElement, setShowElement, ref) {
 
   return null;
 }
-
-export default useHandleOutsideClick;

@@ -2,9 +2,9 @@ import { useRef, useState } from "react";
 
 import { LARGE_ICON_SIZE } from "../../Utility/constants";
 import { RiAccountCircleLine } from "react-icons/ri";
+import { useHandleOutsideClick } from "../../Hooks/useHandleOutsideClick";
 
 import AccountDropDown from "./AccountDropDown";
-import useHandleOutsideClick from "../../Hooks/useHandleOutsideClick";
 
 function AccountIcon({ setShowFilter }) {
   const [isOpen, setIsOpen] = useState(false);

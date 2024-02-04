@@ -1,8 +1,8 @@
-function HorizontalCategoriesHeader({ discountInPercentage }) {
+function HorizontalCategoriesHeader({ discountInPercentage, categoryName }) {
   return (
-    <h1 className="mb-2 flex items-center justify-between rounded-md bg-yellow-400 p-2 text-xl font-bold">
-      <span>
-        Flash sale{" "}
+    <div className="mb-2 flex items-center justify-between rounded-md bg-yellow-400 p-2 text-xl font-bold">
+      <span className="capitalize">
+        {categoryName}{" "}
         {discountInPercentage && (
           <em className="text-[10px] text-red-600">
             {`${discountInPercentage}%`} Discount
@@ -11,7 +11,7 @@ function HorizontalCategoriesHeader({ discountInPercentage }) {
       </span>
 
       <span className="text-sm uppercase">see all &rarr;</span>
-    </h1>
+    </div>
   );
 }
 

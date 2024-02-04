@@ -8,7 +8,7 @@ function DummyItem() {
           key={i}
           className="dummy-item-animate no-scrollbar relative m-auto h-[320px] w-[200px] overflow-hidden rounded-lg bg-stone-200 text-left"
         >
-          <div className="flex h-[180px] w-[100%] items-center justify-center bg-stone-300">
+          <div className="flex h-[180px] w-full items-center justify-center bg-stone-300">
             <div className="logo-animate">
               <Logo />
             </div>

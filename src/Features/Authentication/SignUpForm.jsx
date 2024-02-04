@@ -35,7 +35,7 @@ function SignUpForm() {
 
   return (
     <form
-      className="w-[100%] p-3"
+      className="w-full p-3"
       onSubmit={handleSubmit(handleSignUp)}
       autoComplete="on"
     >
@@ -109,7 +109,7 @@ function SignUpForm() {
           </Link>
         </p>
 
-        <Button moreStyle={"w-[100%]"} disabled={isPending}>
+        <Button moreStyle={"w-full"} disabled={isPending}>
           Sign up
         </Button>
       </div>

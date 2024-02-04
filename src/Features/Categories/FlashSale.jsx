@@ -19,6 +19,7 @@ function FlashSale() {
       isLoading={isLoading}
       discountInPercentage={50}
       error={error}
+      categoryName="Flash Sale"
     />
   );
 }

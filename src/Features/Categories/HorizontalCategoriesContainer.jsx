@@ -6,13 +6,17 @@ import HorizontalCategoriesHeader from "./HorizontalCategoriesHeader";
 
 function HorizontalCategoriesContainer({
   discountInPercentage,
+  categoryName,
   data: items,
   isLoading,
   error,
 }) {
   return (
     <div className="relative col-span-3 px-2">
-      <HorizontalCategoriesHeader discountInPercentage={discountInPercentage} />
+      <HorizontalCategoriesHeader
+        discountInPercentage={discountInPercentage}
+        categoryName={categoryName}
+      />
       {isLoading ? (
         <div className="mt-40">
           <Spinner />

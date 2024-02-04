@@ -5,10 +5,12 @@ import { formatCurrency } from "../../Utility/helpers";
 
 import IncDecButton from "../../Components/IncDecButton";
 import Button from "../../Components/Button";
+import useLocalStorage from "../../Hooks/useLocalStorage";
 
 function CategoryItem({ item }) {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
+  const [value, setValue] = useLocalStorage("cart", []);
 
   function handleAddToCart() {
     const newItem = {
@@ -25,6 +27,8 @@ function CategoryItem({ item }) {
 
     dispatch(addItem(newItem));
     toast.success("Item added to cart");
+    setValue((value) => [...value, newItem]);
+    console.log(value);
   }
 
   return (
@@ -33,11 +37,7 @@ function CategoryItem({ item }) {
         !(item.quantityAvailable === 0) ? "hover:bg-stone-300" : ""
       } ${item.quantityAvailable === 0 && "opacity-50"}`}
     >
-      <img
-        src={item.image}
-        alt={item.itemName}
-        className="h-[180px] w-[100%]"
-      />
+      <img src={item.image} alt={item.itemName} className="h-[180px] w-full" />
       <div className="space-y-1 p-2">
         <p className="text-md font-bold capitalize text-yellow-500">
           {item.itemName}

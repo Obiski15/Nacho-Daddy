@@ -13,10 +13,11 @@ import Button from "../../Components/Button";
 import CheckoutSummaryRow from "./CheckoutSummaryRow";
 import CouponForm from "./CouponForm";
 import FullPageSpinner from "../../Components/FullPageSpinner";
+import Heading from "../../Components/Heading";
 
 const date = new Date();
 
-function CheckoutSummary({ formValues }) {
+function CheckoutSummary({ formValues, reset }) {
   const { fullname, address, phone, state, city, email } = formValues;
   const [coupon, setCoupon] = useState("");
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ function CheckoutSummary({ formValues }) {
     onSuccess: () => {
       toast.success("order placed");
       navigate("/myorders");
+      reset();
       dispatch(clearCart());
     },
 
@@ -64,7 +66,9 @@ function CheckoutSummary({ formValues }) {
 
   return (
     <div className="no-scrollbar h-auto overflow-x-scroll rounded-lg bg-stone-200 px-4 py-2">
-      <h1 className="text-xl font-bold capitalize">order details</h1>
+      <Heading type="h2" font="bold">
+        order details
+      </Heading>
       {formValues ? (
         <>
           <div className="mt-2 font-semibold">
@@ -93,15 +97,17 @@ function CheckoutSummary({ formValues }) {
             </p>
           </div>
 
-          <Button moreStyle={"w-[100%]"} onClick={handleOrder}>
+          <Button moreStyle={"w-full"} onClick={handleOrder}>
             place order({formatCurrency(finalPrice)})
           </Button>
         </>
       ) : (
-        <h5 className="mt-3 text-sm font-semibold italic">
-          Fill out the form to place your order
-        </h5>
-      )}{" "}
+        <div className="mt-3">
+          <Heading font="semibold" moreStyles="italic">
+            Fill out the form to place your order
+          </Heading>
+        </div>
+      )}
     </div>
   );
 }

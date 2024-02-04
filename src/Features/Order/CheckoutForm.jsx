@@ -1,5 +1,3 @@
-import { useForm } from "react-hook-form";
-
 import { INPUT_STYLE as CONST_INPUT_STYLE } from "../../Utility/constants";
 import { useUser } from "../Authentication/useUser";
 
@@ -9,14 +7,13 @@ import Heading from "../../Components/Heading";
 
 const INPUT_STYLE = `${CONST_INPUT_STYLE} grow flex-[85%]`;
 
-function CheckoutForm({ setFormvalues }) {
-  const {
-    getValues,
-    register,
-    reset,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+function CheckoutForm({
+  setFormvalues,
+  getValues,
+  register,
+  handleSubmit,
+  errors,
+}) {
   const { user } = useUser();
 
   function onSubmit() {
@@ -26,7 +23,6 @@ function CheckoutForm({ setFormvalues }) {
       fullname: user?.user_metadata?.fullname,
       email: user?.email,
     });
-    reset();
   }
 
   return (
@@ -35,7 +31,9 @@ function CheckoutForm({ setFormvalues }) {
       method="get"
       className="rounded-lg bg-stone-200 px-4 py-2"
     >
-      <Heading type="h1">checkout</Heading>
+      <Heading type="h2" font="bold">
+        checkout
+      </Heading>
       <div className="mx-3 my-5">
         <FormRow label={"fullname"} error={errors?.fullname?.message}>
           <input

@@ -11,6 +11,8 @@ export function useLogout() {
     mutationFn: signOut,
 
     onSuccess: () => {
+      const confirmLogout = window.confirm("Confirm to logout");
+      if (!confirmLogout) return;
       toast.success("Logged Out");
       navigate("/", { replace: true });
       queryClient.removeQueries();

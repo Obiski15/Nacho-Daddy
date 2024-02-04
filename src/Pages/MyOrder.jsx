@@ -29,9 +29,11 @@ function MyOrder() {
       <Header />
       {
         <div className="m-2">
-          <Heading type="h2" moreStyles="mb-3">
-            your orders
-          </Heading>
+          <div className="mb-3">
+            <Heading type="h2" font="bold">
+              your orders
+            </Heading>
+          </div>
           {!orders.length ? (
             <p className="text-sm font-semibold">
               you do not have any order yet ):

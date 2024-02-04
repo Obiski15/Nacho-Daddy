@@ -4,8 +4,7 @@ import { useDispatch } from "react-redux";
 import { FaSearch } from "react-icons/fa";
 import { FaTimesCircle } from "react-icons/fa";
 import { updateQuery } from "../../Store/headerSlice";
-
-import useHandleOutsideClick from "../../Hooks/useHandleOutsideClick";
+import { useHandleOutsideClick } from "../../Hooks/useHandleOutsideClick";
 
 function SearchBar({ showSearch, setShowSearch }) {
   const ref = useRef();

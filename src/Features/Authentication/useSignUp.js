@@ -10,8 +10,8 @@ export function useSignUp() {
       signUpNewUser(fullname, email, password),
 
     onSuccess: () => {
-      toast.success("Account created successfully. Login to continue");
-      navigate("/");
+      toast.success("Account created successfully. Kindly login to continue");
+      navigate("/login");
     },
 
     onError: (err) => {

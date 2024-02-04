@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
 
+import { useHandleOutsideClick } from "../../Hooks/useHandleOutsideClick";
+
 import Logo from "./Logo";
 import SearchBar from "./SearchBar";
 import Filter from "./Filter";
 import Hamburger from "./Hamburger";
-import useHandleOutsideClick from "../../Hooks/useHandleOutsideClick";
 
 function Header() {
   const ref = useRef();

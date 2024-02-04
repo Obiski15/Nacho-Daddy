@@ -39,11 +39,7 @@ function HorizontalCategoriesItem({ discountInPercentage, item }) {
       } no-scrollbar relative my-2 h-[320px] min-w-[200px] overflow-scroll rounded-lg border-2 border-yellow-400 text-left hover:scale-[1.01]`}
     >
       <span>
-        <img
-          src={item.image}
-          alt={item.itemName}
-          className="h-[180px] w-[100%]"
-        />
+        <img src={item.image} alt={item.itemName} className="h-[180px] " />
         <div className="flex flex-col gap-1 p-2">
           <p className="text-md font-bold uppercase text-yellow-500">
             {item.itemName}

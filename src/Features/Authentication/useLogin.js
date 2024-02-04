@@ -13,7 +13,7 @@ export function useLogin() {
     onSuccess: (data) => {
       toast.success("Login successful");
       queryClient.setQueryData(["user"], data.user);
-      navigate("/items", { replace: true });
+      navigate("/", { replace: true });
     },
 
     onError: () => {

@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { searchItem } from "../../Utility/helpers";
 
 import CategoryItem from "./CategoryItem";
+import Heading from "../../Components/Heading";
 
 function CategoryContainer({ data }) {
   const query = useSelector((state) => state.header.query);
@@ -33,10 +34,11 @@ function CategoryContainer({ data }) {
 
   return (
     <>
-      <h1 className="text-md italic">
-        <span className="font-semibold">{searchedItems.length}</span> products
-        found
-      </h1>
+      <div className="mb-3">
+        <Heading type="h5" moreStyles="italic">
+          {searchedItems.length} products found
+        </Heading>
+      </div>
       <div className="grid grid-cols-1 grid-rows-[auto] items-start justify-between gap-3 min-[420px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 min-[1440px]:grid-cols-5 min-[1750px]:grid-cols-7">
         {items.map((item) => (
           <CategoryItem item={item} key={item.id} />

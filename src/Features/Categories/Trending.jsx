@@ -18,6 +18,7 @@ function Trending() {
       data={data}
       isLoading={isLoading}
       discountInPercentage={null}
+      categoryName="trending"
       error={error}
     />
   );

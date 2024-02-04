@@ -34,7 +34,7 @@ function LoginForm() {
   }, [setFocus]);
 
   return (
-    <form onSubmit={handleSubmit(handleLogin)} className="w-[100%] p-3">
+    <form onSubmit={handleSubmit(handleLogin)} className="w-full p-3">
       <div className="flex flex-col items-start justify-center gap-3">
         <FormInput error={errors?.email?.message}>
           <input
@@ -82,7 +82,7 @@ function LoginForm() {
           </Link>
         </p>
 
-        <Button moreStyle={"w-[100%]"} disabled={isPending}>
+        <Button moreStyle={"w-full"} disabled={isPending}>
           login
         </Button>
       </div>
