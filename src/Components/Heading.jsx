@@ -15,35 +15,39 @@ function Heading({ type, children, moreStyles, font }) {
       </h2>
     ),
     h3: (
-      <h2
+      <h3
         className={`text-xl font-${font} ${moreStyles} capitalize tracking-wide`}
       >
         {children}
-      </h2>
+      </h3>
     ),
     h4: (
-      <h2
+      <h4
         className={`text-lg font-${font} ${moreStyles} capitalize tracking-wide`}
       >
         {children}
-      </h2>
+      </h4>
     ),
     h5: (
-      <h2
+      <h5
         className={`text-md font-${font} ${moreStyles} capitalize tracking-wide`}
       >
         {children}
-      </h2>
+      </h5>
     ),
     h6: (
-      <h2
+      <h6
         className={`text-sm font-${font} ${moreStyles} capitalize tracking-wide`}
       >
         {children}
-      </h2>
+      </h6>
     ),
   };
 
-  return headings[type] || <h3>{children}</h3>;
+  return (
+    headings[type] || (
+      <h3 className="text-xl font-bold capitalize tracking-wide">{children}</h3>
+    )
+  );
 }
 export default Heading;
