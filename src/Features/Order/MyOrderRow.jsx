@@ -1,12 +1,14 @@
 import { useState } from "react";
 
-import MyOrderDetails from "./MyOrderDetails";
-
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { SMALL_ICON_SIZE } from "../../Utility/constants";
+import { useUser } from "../Authentication/useUser";
+
+import MyOrderDetails from "./MyOrderDetails";
 
 function MyOrderRow({ orders }) {
   const [clickedId, setClickedId] = useState(false);
+  const { user } = useUser();
 
   function handleHideDetails() {
     setClickedId("");
@@ -16,12 +18,16 @@ function MyOrderRow({ orders }) {
     setClickedId(id);
   }
 
-  const sorted = orders.sort(
-    (a, b) =>
-      new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
-  );
+  const sorted = orders
+    .sort(
+      (a, b) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
+    )
+    .filter((order) => order.user_id === user.id);
 
-  return (
+  return !sorted.length ? (
+    <p className="text-sm font-semibold">you do not have any order yet ):</p>
+  ) : (
     <div>
       {sorted.map((order) => (
         <div key={order.id}>
@@ -40,7 +46,7 @@ function MyOrderRow({ orders }) {
               />
             )}
             <div
-              className="no-scrollbar grid grow items-center justify-between gap-3 overflow-scroll px-2 text-left capitalize max-[768px]:grid-cols-2 max-[450px]:grid-cols-1 min-[768px]:grid-cols-4"
+              className="no-scrollbar grid grow items-center justify-between gap-3 overflow-scroll px-2 text-left capitalize max-[768px]:grid-cols-2 max-[450px]:grid-cols-1 min-[768px]:grid-cols-3"
               key={order.id}
             >
               <div className="justify-left flex items-center gap-2 whitespace-nowrap">
@@ -66,11 +72,6 @@ function MyOrderRow({ orders }) {
               <div className="justify-left flex items-center gap-2 whitespace-nowrap">
                 <p>delivery date:</p>
                 <p>{order.deliveryDate}</p>
-              </div>
-
-              <div className="justify-left flex items-center gap-2 whitespace-nowrap font-semibold">
-                <p>Order Placed By:</p>
-                <p className="text-yellow-700 ">{order.fullname}</p>
               </div>
             </div>
           </div>

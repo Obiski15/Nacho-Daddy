@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearCart, getTotalPrice } from "../../Store/cartSlice";
 import { formatCurrency, formatDate } from "../../Utility/helpers";
 import { placeOrder } from "../../Services/orderApi";
+import { useUser } from "../Authentication/useUser";
 
 import Button from "../../Components/Button";
 import CheckoutSummaryRow from "./CheckoutSummaryRow";
@@ -18,16 +19,16 @@ import Heading from "../../Components/Heading";
 const date = new Date();
 
 function CheckoutSummary({ formValues, reset }) {
-  const { fullname, address, phone, state, city, email } = formValues;
-  const [coupon, setCoupon] = useState("");
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const totalPrice = useSelector(getTotalPrice);
-  const deliveryDate = new Date().setDate(date.getDate() + 3);
-
-  const finalPrice = coupon ? totalPrice - coupon : totalPrice;
-
   const cart = useSelector((state) => state.cart.cart);
+  const [coupon, setCoupon] = useState("");
+  const totalPrice = useSelector(getTotalPrice);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user } = useUser();
+
+  const { fullname, address, phone, state, city, email } = formValues;
+  const deliveryDate = new Date().setDate(date.getDate() + 3);
+  const finalPrice = coupon ? totalPrice - coupon : totalPrice;
 
   const { mutate, isPending, error } = useMutation({
     mutationKey: ["placeOrder"],
@@ -49,6 +50,7 @@ function CheckoutSummary({ formValues, reset }) {
   function handleOrder() {
     const orderDetails = {
       id: uid(),
+      user_id: user.id,
       cart: JSON.stringify(cart),
       address: `${address}, ${city}, ${state}`,
       phone,
@@ -103,7 +105,7 @@ function CheckoutSummary({ formValues, reset }) {
         </>
       ) : (
         <div className="mt-3">
-          <Heading font="semibold" moreStyles="italic">
+          <Heading font="semibold" type="h5" moreStyles="italic">
             Fill out the form to place your order
           </Heading>
         </div>
